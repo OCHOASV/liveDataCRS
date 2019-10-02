@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">liveDataCRS</string>
+    <string name="title_activity_maps_crs">Map</string>
 </resources>

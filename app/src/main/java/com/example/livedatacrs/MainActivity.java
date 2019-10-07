@@ -128,6 +128,5 @@ public class MainActivity extends AppCompatActivity {
         FirstNameHolder = FirstName.getText().toString().trim();
         LastNameHolder = LastName.getText().toString().trim();
         EmailHolder = Email.getText().toString().trim();
-
     }
 }

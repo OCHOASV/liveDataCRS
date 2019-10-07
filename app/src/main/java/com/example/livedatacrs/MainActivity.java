@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                                 // Showing response message coming from server.
                                 // Toast.makeText(MainActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
 
-                                Toast.makeText(MainActivity.this, "Dato Guardado con Exito !!!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this, "Informacion Guardada con Exito !!!", Toast.LENGTH_LONG).show();
 
                                 FirstName.setText("");
                                 LastName.setText("");
@@ -124,10 +124,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Creating method to get value from EditText.
     public void GetValueFromEditText(){
-
         FirstNameHolder = FirstName.getText().toString().trim();
         LastNameHolder = LastName.getText().toString().trim();
         EmailHolder = Email.getText().toString().trim();
-
     }
 }

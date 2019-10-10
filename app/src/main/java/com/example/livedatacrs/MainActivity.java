@@ -1,13 +1,14 @@
 package com.example.livedatacrs;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -51,6 +52,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Assigning ID's to Button.
         InsertButton = (Button) findViewById(R.id.ButtonInsert);
+        Button GetMapButton = findViewById(R.id.MapButton);
+
+        //Evento click botón mapas
+        GetMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(i);
+            }
+        });
 
         // Iniciamos el Volley
         rq = Volley.newRequestQueue(MainActivity.this);

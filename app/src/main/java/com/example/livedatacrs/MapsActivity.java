@@ -49,24 +49,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+//        Instanciamos clase LocationManager
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        //Verificamos si tiene permiso para ubicación
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            //Si no tiene permiso, se lo pedimos
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_ACCESS_FINE);
         }
+        //Obtenemos coordenadas
         Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         getLocation(location);
     }
     private void getLocation(Location location)
     {
+        //Si obtuvo coordenadas
         if(location != null)
         {
+            //LLenamos variables Latitud y Longitud
             double lat = location.getLatitude();
             double lon = location.getLongitude();
+
             LatLng MyLocation = new LatLng(lat, lon);
+            //Agregamos marcador
             mMap.addMarker(new MarkerOptions().position(MyLocation).title("Coordenadas: " + lat + " , " + lon));
+            //Posicionamos camara
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MyLocation,1));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(20),2000,null);
-            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
         }
     }
 }
